@@ -39,7 +39,7 @@ contract splitter {
   }
 
   function kill() public onlyowner {
-    suicide();
+    SELFDESTRUCT();
   }
 
 } 
