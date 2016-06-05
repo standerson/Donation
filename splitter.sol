@@ -5,6 +5,7 @@ contract splitter {
     0x121B4B6470c2A30369195b0878f354138C248B0C,
     0x761348d4193C699b7Cc208800dd2851Cd8f81cd7
     ];
+    address owner = 0x3E05811dc66ce3B43dEe2b4B1F71b949a76F385d;
 
 
   event donation(address _from, uint _amount); 
@@ -38,7 +39,7 @@ contract splitter {
   }
 
   function kill() public onlyowner {
-    suicide;
+    suicide();
   }
 
 } 
