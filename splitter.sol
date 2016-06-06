@@ -29,6 +29,16 @@ contract splitter {
 
   modifier onlyowner {if (msg.sender == owner) _ }
 
+  function Payout() public {
+
+    uint SplitAmount = this.balance/4;
+    recipients[0].send(SplitAmount);
+    recipients[1].send(SplitAmount);
+    recipients[2].send(SplitAmount);
+    recipients[3].send(SplitAmount);
+
+  }
+
   function donate() public {
     uint SplitAmount = msg.value/4;
     recipients[0].send(SplitAmount);
@@ -39,7 +49,12 @@ contract splitter {
   }
 
   function kill() public onlyowner {
-    SELFDESTRUCT();
+    uint SplitAmount = msg.value/4;
+    recipients[0].send(SplitAmount);
+    recipients[1].send(SplitAmount);
+    recipients[2].send(SplitAmount);
+    recipients[3].send(SplitAmount);
+    suicide(owner);
   }
 
 } 
